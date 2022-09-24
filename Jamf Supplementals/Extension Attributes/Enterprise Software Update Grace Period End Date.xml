@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><extensionAttribute>
+<displayName>Enterprise Software Update Grace Period End Date</displayName>
+<description>Grace period end date for macOS updates</description>
+<dataType>date</dataType>
+<scriptContentsMac>#!/bin/zsh&#13;
+&#13;
+if gracePeriodEndDate=$(defaults read /Library/Preferences/com.floatingorchard.EnterpriseSoftwareUpdate-Minor.plist gracePeriodWindowClosureDate); then&#13;
+	echo "&lt;result&gt;$(echo $gracePeriodEndDate)&lt;/result&gt;"&#13;
+else&#13;
+	echo "&lt;result&gt;None&lt;/result&gt;"&#13;
+fi&#13;
+</scriptContentsMac>
+</extensionAttribute>

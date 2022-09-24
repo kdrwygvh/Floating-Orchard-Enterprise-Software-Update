@@ -1,0 +1,218 @@
+{
+    "title": "Enterprise Minor Software Update Preferences",
+    "description": "Preferences for Enterprise Software Update, Minor Updates Only",
+    "__version": "0.1",
+    "__preferencedomain": "com.floatingorchard.EnterpriseSoftwareupdate-Minor",
+    "links": [
+        {
+            "rel": "Documentation Link",
+            "href": "https://github.com/kdrwygvh/Sunstein_macOSUpdates"
+        }
+    ],
+    "options": {
+        "remove_empty_properties": true
+    },
+    "properties": {
+        "minorMacOSSoftwareUpdateGracePeriodinDays": {
+            "title": "Minor Software Update Grace Period in Days",
+            "description": "(macOSSoftwareUpdateGracePeriodinDays)-Set the number of days the user will be notified of pending updates with an option to review them in System Preferences",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "minorMacOSSoftwareUpdateAbsoluteDeadlineAfterGracePeriodinDays": {
+            "title": "Absolute Deadline in Days",
+            "description": "(macOSSoftwareUpdateAbsoluteDeadlineAfterGracePeriodinDays)-Set the number of days after the grace period after which updates will be automatically applied",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "customBrandingImagePath": {
+            "title": "Custom Branding Image Path",
+            "description": "(customBrandingImagePath)-Set a custom image path for notifications",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "string",
+                    "options": {
+                        "inputAttributes": {
+                            "placeholder": "/Users/Shared/image.png"
+                        }
+                    }
+                }
+            ]
+        },
+        "customDialogInsideGracePeriodText": {
+            "title": "Custom Inside Grace Period Window Text",
+            "description": "(customDialogInsideGracePeriodText)-Text the user will see when inside the grace period. Useful variables to use are dateMacBecameAwareOfUpdatesNationalRepresentation, gracePeriodDayCountdown, and gracePeriodWindowClosureDateNationalRepresentation",
+            "links": [
+                {
+                    "rel": "Documentation Link",
+                    "href": "this will go to github"
+                }
+            ],
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "string",
+                    "options": {
+                        "inputAttributes": {
+                            "placeholder": "Software Updates are available as of\n\n**$dateMacBecameAwareOfUpdatesNationalRepresentation**\n\nYou have **$gracePeriodDayCountdown** days to install them before they will be auto-installed\n\nAuto installation will start on or about\n\n**$gracePeriodWindowClosureDateNationalRepresentation**"
+                        }
+                    }
+                }
+            ]
+        },
+        "customDialogOutsideGracePeriodText": {
+            "title": "Custom Outside Grace Period Window Text",
+            "description": "(customDialogOutsideGracePeriodText)-Text the user will see when outside the grace period. A wayOutsideDialog warning is available if you've set an aggressive deadline",
+            "links": [
+                {
+                    "rel": "Documentation Link",
+                    "href": "this will go to github"
+                }
+            ],
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "string",
+                    "options": {
+                        "inputAttributes": {
+                            "placeholder": "Updates are available which we'd suggest installing today at your earliest convenience\n\nYou'll be presented with available updates to install after clicking 'Review'.\n\n$wayOutsideDialogWarning"
+                        }
+                    }
+                }
+            ]
+        },
+        "updateAttitude": {
+            "title": "Update Attitude",
+            "description": "(updateAttitude)-Update with aggressive attitude. Also requires a way outside grace period date set and a max idle time before aggressive update set",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "links": [
+                        {
+                            "rel": "Documentation Link",
+                            "href": "github link"
+                        }
+                    ],
+                    "type": "boolean"
+                }
+            ]
+        },
+        "aggressiveUpdateIdleTimeinMinutes": {
+            "title": "Idle time in Minutes",
+            "description": "(aggressiveUpdateIdleTimeinMinutes)-If update attitude is set to aggressive, set the Mac idle time in minutes after which updates will be automatically applied",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "integer"
+                }
+            ]
+        },
+        "doNotDisturbAppBundleIDs": {
+            "title": "Do not Disturb App Bundle IDs",
+            "description": "(doNotDisturbAppBundleIDs)-A list of application bundle IDs, any one of which will override any notifications for updates if they are the app currently in focus",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "title": "Bundle ID"
+                    }
+                }
+            ]
+        },
+        "respectDNDApplications": {
+            "title": "Respect Do Not Disturb Application",
+            "description": "(respectDNDApplications)-Enables or disables the suppression of notification if a do not disturb bundle ID is the frontmost application",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "minorMacOSUpdateInsideGracePeriodEvent": {
+            "title": "Major macOS Update Inside Grace Period Jamf Event",
+            "description": "(minorMacOSUpdateInsideGracePeriodEvent)-Jamf event that triggers a minor software update within the defined grace period",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "string",
+                    "options": {
+                        "inputAttributes": {
+                            "placeholder": "minorMacOSUpgradeInsideGracePeriod"
+                        }
+                    }
+                }
+            ]
+        },
+        "minorMacOSUpdateOutsideGracePeriodEvent": {
+            "title": "Minor macOS Update Outside Grace Period Jamf Event",
+            "description": "(minorMacOSUpdateInsideGracePeriodEvent)-Jamf event that triggers a major software update without the defined grace period",
+            "anyOf": [
+                {
+                    "type": "null",
+                    "title": "Not Configured"
+                },
+                {
+                    "title": "Configured",
+                    "type": "string",
+                    "options": {
+                        "inputAttributes": {
+                            "placeholder": "minorMacOSUpgradeOutsideGracePeriod"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><extensionAttribute>
+<displayName>Enterprise Software Update Grace Period Start Date</displayName>
+<description>Date macOS became aware of available updates</description>
+<dataType>date</dataType>
+<scriptContentsMac>#!/bin/zsh&#13;
+&#13;
+if gracePeriodStartDate=$(defaults read /Library/Preferences/com.floatingorchard.EnterpriseSoftwareUpdate-Minor.plist dateMacBecameAwareOfUpdates); then&#13;
+	echo "&lt;result&gt;$(echo $gracePeriodStartDate)&lt;/result&gt;"&#13;
+else&#13;
+	echo "&lt;result&gt;None&lt;/result&gt;"&#13;
+fi&#13;
+</scriptContentsMac>
+</extensionAttribute>

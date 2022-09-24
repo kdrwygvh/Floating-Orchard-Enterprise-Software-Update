@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AbandonProcessGroup</key>
+	<true/>
+	<key>Disabled</key>
+	<false/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/libexec</string>
+		<key>mdmSoftwareUpdatePreferenceFile</key>
+		<string>/Library/Managed Preferences/com.floatingorchard.EnterpriseSoftwareUpdate-Major.plist</string>
+		<key>softwareUpdatePreferenceFile</key>
+		<string>/Library/Preferences/com.floatingorchard.EnterpriseSoftwareUpdate-Major.plist</string>
+	</dict>
+	<key>Label</key>
+	<string>com.floatingorchard.EnterpriseSoftwareUpdate-SetSchedule-Major</string>
+	<key>LowPriorityBackgroundIO</key>
+	<true/>
+	<key>LowPriorityIO</key>
+	<true/>
+	<key>ProcessType</key>
+	<string>Background</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Library/Application Support/Floating Orchard/Enterprise Software Update.bundle/Contents/Resources/com.floatingorchard.EnterpriseSoftwareUpdate-SetSchedule-Major</string>
+	</array>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StandardOutPath</key>
+	<string>/Library/Logs/com.floatingorchard.EnterpriseSoftwareUpdate-Major.log</string>
+	<key>StartCalendarInterval</key>
+	<array>
+		<dict>
+			<key>Hour</key>
+			<integer>16</integer>
+			<key>Minute</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
